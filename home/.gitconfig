@@ -1,0 +1,6 @@
+[user]
+	name = yamayo
+	email = yamatoyo@gmail.com
+
+[core]
+  editor = /usr/bin/vim

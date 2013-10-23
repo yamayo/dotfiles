@@ -255,6 +255,7 @@ colorscheme solarized
 
 " Give a shortcut key to NERD Tree
 map <F2> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
 
 " neocomplcache
 "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!

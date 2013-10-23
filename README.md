@@ -5,7 +5,7 @@ yamayo's OSX dotfiles
 
 ```
 $ gem install homesick
-$ homesick clone wireframe/dotfiles
-$ homesick symlink wireframe/dotfiles
+$ homesick clone yamayo/dotfiles
+$ homesick symlink yamayo/dotfiles
 ```
 

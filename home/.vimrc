@@ -63,6 +63,11 @@ nmap <silent> <Esc><Esc> :nohlsearch<CR>
 " カーソル下の単語を * で検索
 vnoremap <silent> * "vy/\V<C-r>=substitute(escape(@v, '\/'), "\n", '\\n', 'g')<CR><CR>
 
+" vimrcを即座に編集
+nnoremap <Space>.   :<C-u>edit $MYVIMRC<Enter>
+" vimrcを即座にリロード
+nnoremap <Space>s.  :<C-u>source $MYVIMRC<Enter>
+
 " 検索後にジャンプした際に検索単語を画面中央に持ってくる
 nnoremap n nzz
 nnoremap N Nzz
@@ -153,7 +158,7 @@ set laststatus=2
 set clipboard=unnamed
 
 "" ctrl-x for cut
-vmap <C-x> :!pbcopy<cr>
+vmap <C-x> :!pbcopy<crb
 "" ctrl-c for copy
 vmap <C-c> :w !pbcopy<cr><cr>
 
@@ -224,7 +229,6 @@ NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'kchmck/vim-coffee-script'
-" NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'Shougo/neocomplcache'
@@ -232,10 +236,6 @@ NeoBundle 'Shougo/neosnippet'
 NeoBundle 'rizzatti/funcoo.vim'
 NeoBundle 'rizzatti/dash.vim'
 NeoBundle 'slim-template/vim-slim'
-
-" TODO
-" NeoBundle 'Lokaltog/powerline'
-" set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 
 filetype plugin indent on     " Required!
 syntax enable

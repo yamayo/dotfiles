@@ -6,8 +6,7 @@ ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="agnoster"
-#ZSH_THEME="robbyrussell"
-DEFAULT_USER="yamato.yo"
+DEFAULT_USER=$USER
 
 #PROMPT='[%n]# '
 #RPROMPT='[%d]'
@@ -37,17 +36,26 @@ DEFAULT_USER="yamato.yo"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
+#plugins=(git ruby osx bundler brew rails)
+plugins=(git ruby osx bundler brew rails)
 
 source $ZSH/oh-my-zsh.sh
+source $HOME/zaw/zaw.zsh
 bindkey '^R' zaw-history
 
 # Customize to your needs...
 #export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin
 export PATH="/Users/yamato.yo/bin:$PATH"
-export PATH="$HOME/.rbenv/bin:$PATH"
+
+### Added by Boxen
+source /opt/boxen/env.sh
+
+### Added by rbenv
+export PATH="/opt/boxen/rbenv/bin:$PATH"
 eval "$(rbenv init -)"
-source /Users/yamato.yo/zaw/zaw.zsh
+
+### Added by nodenv
+export PATH="/opt/boxen/nodenv/bin:$PATH"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
@@ -61,13 +69,20 @@ function precmd () {
 ### Added by mosh
 compdef mosh=ssh
 
-### set alias
+### Added by AWS CLI
+export AWS_CONFIG_FILE="$HOME/aws/awscli.conf"
+source $HOME/.zsh/aws_zsh_completer.sh
+
+
+### Set aliases
 alias bi="bundle install"
 alias bu="bundle update" 
 alias be="bundle exec" 
 alias bes="bundle exec spring" 
 alias bundle='nocorrect bundle'
 alias cpwd="pwd | tr -d '\n' | pbcopy"
+alias less="less -N"
+
 
 ### AWS
 export JAVA_HOME="/Library/Java/Home"
@@ -75,8 +90,8 @@ export JAVA_HOME="/Library/Java/Home"
 export AWS_AUTO_SCALING_HOME="$HOME/aws/AutoScaling-1.0.61.3"
 # ※ aws_trashを使う場合、ここをコメントアウトし、iTermを再起動する
 export AWS_CREDENTIAL_FILE="$AWS_AUTO_SCALING_HOME/credential-file-path"
-##export AWS_AUTO_SCALING_URL="https://autoscaling.us-east-1.amazonaws.com"
-export AWS_AUTO_SCALING_URL="https://autoscaling.ap-northeast-1.amazonaws.com"
+export AWS_AUTO_SCALING_URL="https://autoscaling.us-east-1.amazonaws.com"
+##export AWS_AUTO_SCALING_URL="https://autoscaling.ap-northeast-1.amazonaws.com"
 ###
 export PATH="$AWS_AUTO_SCALING_HOME/bin:$PATH"
 ## EC2
@@ -87,14 +102,9 @@ export EC2_HOME="/usr/local/Library/LinkedKegs/ec2-api-tools/jars"
 export EC2_AMITOOL_HOME="/usr/local/Library/LinkedKegs/ec2-ami-tools/jars"
 
 export AWS_CLOUDWATCH_HOME="$HOME/aws/CloudWatch-1.0.13.4"
-##export CLOUDWATCH_ENDPOINT="monitoring.us-east-1.amazonaws.com"
-export CLOUDWATCH_ENDPOINT="monitoring.ap-northeast-1.amazonaws.com"
+export CLOUDWATCH_ENDPOINT="monitoring.us-east-1.amazonaws.com"
+##export CLOUDWATCH_ENDPOINT="monitoring.ap-northeast-1.amazonaws.com"
 export PATH="$AWS_CLOUDWATCH_HOME/bin:$PATH"
-##export EC2_REGION=us-east-1
-export EC2_REGION=ap-northeast-1
+export EC2_REGION=us-east-1
+##export EC2_REGION=ap-northeast-1
 
-### Added by AWS CLI
-export AWS_CONFIG_FILE="/Users/yamato.yo/aws/awscli.conf"
-#autoload -U bashcompinit
-#bashcompinit
-source ~/.zsh/aws_zsh_completer.sh

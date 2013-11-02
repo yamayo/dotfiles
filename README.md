@@ -9,3 +9,8 @@ $ homesick clone yamayo/dotfiles
 $ homesick symlink yamayo/dotfiles
 ```
 
+### Git configuration
+```
+$ cd ~/.homesick/repos/dotfiles
+$ git config remote.origin.url git@github.com:yamayo/dotfiles.git
+```

@@ -36,7 +36,6 @@ DEFAULT_USER=$USER
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-#plugins=(git ruby osx bundler brew rails)
 plugins=(git ruby osx bundler brew rails)
 
 source $ZSH/oh-my-zsh.sh
@@ -45,7 +44,7 @@ bindkey '^R' zaw-history
 
 # Customize to your needs...
 #export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin
-export PATH="/Users/yamato.yo/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
 
 ### Added by Boxen
 source /opt/boxen/env.sh

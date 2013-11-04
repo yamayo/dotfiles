@@ -83,6 +83,7 @@ alias cpwd="pwd | tr -d '\n' | pbcopy"
 alias less="less -N"
 
 
+
 ### Added by AWS
 export JAVA_HOME="/Library/Java/Home"
 ## AUTO_SCALING

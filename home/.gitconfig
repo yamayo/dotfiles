@@ -2,6 +2,13 @@
 	name = yamayo
 	email = yamatoyo@gmail.com
 
+[color]
+  status = auto
+  diff = auto
+  branch = auto
+  interactive = auto
+  grep = auto
+
 [core]
   editor = /usr/bin/vim
   excludesfile = /opt/boxen/config/git/gitignore
@@ -10,4 +17,4 @@
 helper = /opt/boxen/bin/boxen-git-credential
 
 [hub]
-protocol = https
+protocol = ssh

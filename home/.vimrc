@@ -162,6 +162,9 @@ vmap <C-x> :!pbcopy<crb
 "" ctrl-c for copy
 vmap <C-c> :w !pbcopy<cr><cr>
 
+"" F5でペーストモードを切り替え
+set pastetoggle=<f5>
+
 "" set paste
 set mouse=a
 

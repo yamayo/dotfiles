@@ -42,6 +42,8 @@ source $ZSH/oh-my-zsh.sh
 source $HOME/zaw/zaw.zsh
 bindkey '^R' zaw-history
 
+setopt nonomatch
+
 # Customize to your needs...
 #export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin
 export PATH="$HOME/bin:$PATH"

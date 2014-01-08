@@ -176,6 +176,11 @@ colorscheme solarized
 map <F2> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 
+let file_name = expand("%")
+if has('vim_starting') &&  file_name == ""
+    autocmd VimEnter * NERDTree ./
+endif
+
 " neocomplcache
 "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 " Disable AutoComplPop.
@@ -262,3 +267,5 @@ let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
 let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+
+

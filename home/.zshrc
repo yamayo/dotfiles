@@ -110,3 +110,6 @@ export PATH="$AWS_CLOUDWATCH_HOME/bin:$PATH"
 export EC2_REGION=us-east-1
 ##export EC2_REGION=ap-northeast-1
 
+
+# added by travis gem
+[ -f /Users/yamato.yo/.travis/travis.sh ] && source /Users/yamato.yo/.travis/travis.sh

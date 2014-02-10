@@ -1,6 +1,6 @@
 [user]
-	name = yamayo
-	email = yamatoyo@gmail.com
+  name = yamayo
+  email = yamatoyo@gmail.com
 
 [color]
   status = auto
@@ -14,7 +14,14 @@
   excludesfile = /opt/boxen/config/git/gitignore
 
 [credential]
-helper = /opt/boxen/bin/boxen-git-credential
+  helper = /opt/boxen/bin/boxen-git-credential
+
+[alias]
+  st = status
+  sh = show
+  br = branch
+  ci = commit
+  co = checkout
 
 [hub]
-protocol = ssh
+  protocol = ssh

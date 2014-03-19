@@ -76,14 +76,13 @@ source $HOME/.zsh/aws_zsh_completer.sh
 
 
 ### Set aliases
+alias v="vim"
 alias bi="bundle install"
-alias bu="bundle update" 
-alias be="bundle exec" 
-alias bes="bundle exec spring" 
+alias bu="bundle update"
+alias be="bundle exec"
 alias bundle='nocorrect bundle'
 alias cpwd="pwd | tr -d '\n' | pbcopy"
 alias less="less -N"
-
 
 
 ### Added by AWS
@@ -92,8 +91,8 @@ export JAVA_HOME="/Library/Java/Home"
 export AWS_AUTO_SCALING_HOME="$HOME/aws/AutoScaling-1.0.61.3"
 # ※ aws_trashを使う場合、ここをコメントアウトし、iTermを再起動する
 export AWS_CREDENTIAL_FILE="$AWS_AUTO_SCALING_HOME/credential-file-path"
-export AWS_AUTO_SCALING_URL="https://autoscaling.us-east-1.amazonaws.com"
-##export AWS_AUTO_SCALING_URL="https://autoscaling.ap-northeast-1.amazonaws.com"
+##export AWS_AUTO_SCALING_URL="https://autoscaling.us-east-1.amazonaws.com"
+export AWS_AUTO_SCALING_URL="https://autoscaling.ap-northeast-1.amazonaws.com"
 ###
 export PATH="$AWS_AUTO_SCALING_HOME/bin:$PATH"
 ## EC2
@@ -104,12 +103,14 @@ export EC2_HOME="/usr/local/Library/LinkedKegs/ec2-api-tools/jars"
 export EC2_AMITOOL_HOME="/usr/local/Library/LinkedKegs/ec2-ami-tools/jars"
 
 export AWS_CLOUDWATCH_HOME="$HOME/aws/CloudWatch-1.0.13.4"
-export CLOUDWATCH_ENDPOINT="monitoring.us-east-1.amazonaws.com"
-##export CLOUDWATCH_ENDPOINT="monitoring.ap-northeast-1.amazonaws.com"
+##export CLOUDWATCH_ENDPOINT="monitoring.us-east-1.amazonaws.com"
+export CLOUDWATCH_ENDPOINT="monitoring.ap-northeast-1.amazonaws.com"
 export PATH="$AWS_CLOUDWATCH_HOME/bin:$PATH"
-export EC2_REGION=us-east-1
-##export EC2_REGION=ap-northeast-1
+##export EC2_REGION=us-east-1
+export EC2_REGION=ap-northeast-1
 
+export AWS_RDS_HOME="$HOME/aws/RDSCli-1.15.001"
+export PATH="$AWS_RDS_HOME/bin:$PATH"
 
 # added by travis gem
 [ -f /Users/yamato.yo/.travis/travis.sh ] && source /Users/yamato.yo/.travis/travis.sh

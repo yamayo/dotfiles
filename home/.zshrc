@@ -83,7 +83,9 @@ alias be="bundle exec"
 alias bundle='nocorrect bundle'
 alias cpwd="pwd | tr -d '\n' | pbcopy"
 alias less="less -N"
-
+alias reload='source ~/.zshrc'
+alias editssh='vim ~/.ssh/config'
+alias g='git'
 
 ### Added by AWS
 export JAVA_HOME="/Library/Java/Home"
@@ -103,10 +105,10 @@ export EC2_HOME="/usr/local/Library/LinkedKegs/ec2-api-tools/jars"
 export EC2_AMITOOL_HOME="/usr/local/Library/LinkedKegs/ec2-ami-tools/jars"
 
 export AWS_CLOUDWATCH_HOME="$HOME/aws/CloudWatch-1.0.13.4"
-##export CLOUDWATCH_ENDPOINT="monitoring.us-east-1.amazonaws.com"
+###export CLOUDWATCH_ENDPOINT="monitoring.us-east-1.amazonaws.com"
 export CLOUDWATCH_ENDPOINT="monitoring.ap-northeast-1.amazonaws.com"
 export PATH="$AWS_CLOUDWATCH_HOME/bin:$PATH"
-##export EC2_REGION=us-east-1
+###export EC2_REGION=us-east-1
 export EC2_REGION=ap-northeast-1
 
 export AWS_RDS_HOME="$HOME/aws/RDSCli-1.15.001"

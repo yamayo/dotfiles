@@ -138,6 +138,7 @@ NeoBundle 'Shougo/vimproc'
 "
 " Note: You don't set neobundle setting in .gvimrc!
 " Original repos on github
+NeoBundle 'Shougo/unite.vim'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-endwise'

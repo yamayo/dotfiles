@@ -17,11 +17,14 @@
   helper = /opt/boxen/bin/boxen-git-credential
 
 [alias]
-  st = status
+  s = status
   sh = show
   br = branch
   ci = commit
   co = checkout
+
+[help]
+  autocorrect = -1
 
 [hub]
   protocol = ssh

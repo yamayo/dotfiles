@@ -45,6 +45,7 @@ bindkey '^R' zaw-history
 setopt nonomatch
 
 # Customize to your needs...
+export EDITOR=vim
 #export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin
 export PATH="$HOME/bin:$PATH"
 
@@ -74,6 +75,9 @@ compdef mosh=ssh
 export AWS_CONFIG_FILE="$HOME/aws/awscli.conf"
 source $HOME/.zsh/aws_zsh_completer.sh
 
+### Added by GO
+export GOPATH=$HOME/.go
+export PATH=$PATH:$GOPATH/bin
 
 ### Set aliases
 alias v="vim"
@@ -86,6 +90,7 @@ alias less="less -N"
 alias reload='source ~/.zshrc'
 alias editssh='vim ~/.ssh/config'
 alias g='git'
+alias e='cd $(ghq list -p | peco)'
 
 ### Added by AWS
 export JAVA_HOME="/Library/Java/Home"
@@ -105,10 +110,10 @@ export EC2_HOME="/usr/local/Library/LinkedKegs/ec2-api-tools/jars"
 export EC2_AMITOOL_HOME="/usr/local/Library/LinkedKegs/ec2-ami-tools/jars"
 
 export AWS_CLOUDWATCH_HOME="$HOME/aws/CloudWatch-1.0.13.4"
-###export CLOUDWATCH_ENDPOINT="monitoring.us-east-1.amazonaws.com"
+##export CLOUDWATCH_ENDPOINT="monitoring.us-east-1.amazonaws.com"
 export CLOUDWATCH_ENDPOINT="monitoring.ap-northeast-1.amazonaws.com"
 export PATH="$AWS_CLOUDWATCH_HOME/bin:$PATH"
-###export EC2_REGION=us-east-1
+##export EC2_REGION=us-east-1
 export EC2_REGION=ap-northeast-1
 
 export AWS_RDS_HOME="$HOME/aws/RDSCli-1.15.001"

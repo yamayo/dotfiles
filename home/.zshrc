@@ -72,7 +72,6 @@ function precmd () {
 compdef mosh=ssh
 
 ### Added by AWS CLI
-export AWS_CONFIG_FILE="$HOME/aws/awscli.conf"
 source $HOME/.zsh/aws_zsh_completer.sh
 
 ### Added by GO
@@ -91,6 +90,8 @@ alias reload='source ~/.zshrc'
 alias editssh='vim ~/.ssh/config'
 alias g='git'
 alias e='cd $(ghq list -p | peco)'
+alias gsed='gsed'
+alias awk='gawk'
 
 ### Added by AWS
 export JAVA_HOME="/Library/Java/Home"

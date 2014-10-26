@@ -36,11 +36,26 @@ DEFAULT_USER=$USER
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git ruby osx bundler brew rails)
+plugins=(git ruby osx bundler brew rails zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
-source $HOME/zaw/zaw.zsh
-bindkey '^R' zaw-history
+# source $HOME/zaw/zaw.zsh
+# bindkey '^R' zaw-history
+function peco-select-history() {
+    local tac
+    if which tac > /dev/null; then
+        tac="tac"
+    else
+        tac="tail -r"
+    fi
+    BUFFER=$(\history -n 1 | \
+        eval $tac | \
+        peco --query "$LBUFFER")
+    CURSOR=$#BUFFER
+    zle clear-screen
+}
+zle -N peco-select-history
+bindkey '^r' peco-select-history
 
 export EDITOR=vim
 export PATH="$HOME/bin:$PATH"
@@ -52,12 +67,6 @@ eval "$(rbenv init -)"
 ### Added by Go
 export GOPATH=$HOME/.go
 export PATH=$PATH:$GOPATH/bin
-
-### Added by z
-. /usr/local/etc/profile.d/z.sh
-function precmd () {
-  _z --add "$(pwd -P)"
-}
 
 ### Added by AWS CLI
 source $HOME/.zsh/aws_zsh_completer.sh
@@ -72,6 +81,7 @@ alias cpwd='pwd | tr -d '\n' | pbcopy'
 alias less='less -N'
 alias reload='source ~/.zshrc'
 alias essh='vim ~/.ssh/config'
+alias ezsh='vim ~/.zshrc'
 alias g='git'
 alias t='tig'
 alias q='exit'

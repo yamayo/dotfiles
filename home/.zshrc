@@ -42,25 +42,16 @@ source $ZSH/oh-my-zsh.sh
 source $HOME/zaw/zaw.zsh
 bindkey '^R' zaw-history
 
-setopt nonomatch
-
-# Customize to your needs...
 export EDITOR=vim
-#export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin
 export PATH="$HOME/bin:$PATH"
 
-### Added by Boxen
-source /opt/boxen/env.sh
-
-### Added by rbenv
-export PATH="/opt/boxen/rbenv/bin:$PATH"
+### Added by Ruby
+export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
-### Added by nodenv
-# export PATH="/opt/boxen/nodenv/bin:$PATH"
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+### Added by Go
+export GOPATH=$HOME/.go
+export PATH=$PATH:$GOPATH/bin
 
 ### Added by z
 . /usr/local/etc/profile.d/z.sh
@@ -68,30 +59,22 @@ function precmd () {
   _z --add "$(pwd -P)"
 }
 
-### Added by mosh
-compdef mosh=ssh
-
 ### Added by AWS CLI
 source $HOME/.zsh/aws_zsh_completer.sh
 
-### Added by GO
-export GOPATH=$HOME/.go
-export PATH=$PATH:$GOPATH/bin
-
 ### Set aliases
-alias v="vim"
-alias bi="bundle install"
-alias bu="bundle update"
-alias be="bundle exec"
+alias v='vim'
+alias bi='bundle install'
+alias bu='bundle update'
+alias be='bundle exec'
 alias bundle='nocorrect bundle'
-alias cpwd="pwd | tr -d '\n' | pbcopy"
-alias less="less -N"
+alias cpwd='pwd | tr -d '\n' | pbcopy'
+alias less='less -N'
 alias reload='source ~/.zshrc'
-alias editssh='vim ~/.ssh/config'
+alias essh='vim ~/.ssh/config'
 alias g='git'
+alias t='tig'
+alias q='exit'
 alias e='cd $(ghq list -p | peco)'
 alias gsed='gsed'
 alias awk='gawk'
-
-# added by travis gem
-[ -f /Users/yamato.yo/.travis/travis.sh ] && source /Users/yamato.yo/.travis/travis.sh

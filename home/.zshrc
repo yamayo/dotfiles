@@ -68,6 +68,12 @@ eval "$(rbenv init -)"
 export GOPATH=$HOME/.go
 export PATH=$PATH:$GOPATH/bin
 
+### Added by z
+. /usr/local/etc/profile.d/z.sh
+function precmd () {
+  _z --add "$(pwd -P)"
+}
+
 ### Added by AWS CLI
 source $HOME/.zsh/aws_zsh_completer.sh
 
@@ -86,5 +92,5 @@ alias g='git'
 alias t='tig'
 alias q='exit'
 alias e='cd $(ghq list -p | peco)'
-alias gsed='gsed'
-alias awk='gawk'
+alias -g sed='gsed'
+alias -g awk='gawk'

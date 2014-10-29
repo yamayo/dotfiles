@@ -36,33 +36,34 @@ DEFAULT_USER=$USER
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git ruby osx bundler brew rails zsh-syntax-highlighting)
+# plugins=(git ruby osx bundler brew rails zsh-syntax-highlighting)
+plugins=(git ruby osx bundler brew rails z)
 
 source $ZSH/oh-my-zsh.sh
-# source $HOME/zaw/zaw.zsh
-# bindkey '^R' zaw-history
-function peco-select-history() {
-    local tac
-    if which tac > /dev/null; then
-        tac="tac"
-    else
-        tac="tail -r"
-    fi
-    BUFFER=$(\history -n 1 | \
-        eval $tac | \
-        peco --query "$LBUFFER")
-    CURSOR=$#BUFFER
-    zle clear-screen
-}
-zle -N peco-select-history
-bindkey '^r' peco-select-history
+source $HOME/zaw/zaw.zsh
+bindkey '^R' zaw-history
+# function peco-select-history() {
+#     local tac
+#     if which tac > /dev/null; then
+#         tac="tac"
+#     else
+#         tac="tail -r"
+#     fi
+#     BUFFER=$(\history -n 1 | \
+#         eval $tac | \
+#         peco --query "$LBUFFER")
+#     CURSOR=$#BUFFER
+#     zle clear-screen
+# }
+# zle -N peco-select-history
+# bindkey '^r' peco-select-history
 
 export EDITOR=vim
 export PATH="$HOME/bin:$PATH"
 
 ### Added by Ruby
 export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+eval "$(rbenv init --no-rehash -)"
 
 ### Added by Go
 export GOPATH=$HOME/.go
@@ -82,6 +83,7 @@ alias v='vim'
 alias bi='bundle install'
 alias bu='bundle update'
 alias be='bundle exec'
+alias c='bundle exec rails c'
 alias bundle='nocorrect bundle'
 alias cpwd='pwd | tr -d '\n' | pbcopy'
 alias less='less -N'

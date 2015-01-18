@@ -125,10 +125,10 @@ if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
-call neobundle#rc(expand('~/.vim/bundle/'))
-
+call neobundle#begin(expand('~/.vim/bundle/'))
 " Let NeoBundle manage NeoBundle
 NeoBundleFetch 'Shougo/neobundle.vim'
+call neobundle#end()
 
 " Recommended to install
 " After install, turn shell ~/.vim/bundle/vimproc, (n,g)make -f your_machines_makefile
@@ -158,7 +158,7 @@ NeoBundle 'slim-template/vim-slim'
 NeoBundle 'terryma/vim-multiple-cursors'
 
 filetype plugin indent on     " Required!
-" syntax enable
+syntax enable
 
 " Brief help
 " :NeoBundleList          - list configured bundles
@@ -172,6 +172,7 @@ NeoBundleCheck
 let g:solarized_termtrans = 1
 set background=dark
 colorscheme solarized
+let g:solarized_termcolors=256
 
 " Give a shortcut key to NERD Tree
 map <F2> :NERDTreeToggle<CR>

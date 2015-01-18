@@ -63,7 +63,7 @@ export PATH="$HOME/bin:$PATH"
 
 ### Added by Ruby
 export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init --no-rehash -)"
+eval "$(rbenv init --no-rehash - zsh)"
 
 ### Added by Go
 export GOPATH=$HOME/.go
@@ -75,8 +75,8 @@ function precmd () {
   _z --add "$(pwd -P)"
 }
 
-### Added by AWS CLI
-source $HOME/.zsh/aws_zsh_completer.sh
+# ### Added by AWS CLI
+# source $HOME/.zsh/aws_zsh_completer.sh
 
 ### Set aliases
 alias v='vim'

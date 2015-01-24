@@ -80,7 +80,7 @@ function precmd () {
 
 ### Set aliases
 alias v='vim'
-alias bi='bundle install'
+alias bi='bundle install --path vendor/bundle'
 alias bu='bundle update'
 alias be='bundle exec'
 alias c='bundle exec rails c'

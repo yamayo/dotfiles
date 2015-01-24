@@ -1,0 +1,4 @@
+-d mysql
+-B
+-T
+--skip-turbolinks

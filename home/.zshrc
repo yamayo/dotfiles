@@ -59,10 +59,10 @@ bindkey '^R' zaw-history
 # bindkey '^r' peco-select-history
 
 export EDITOR=vim
-export PATH="$HOME/bin:$PATH"
+export PATH=$HOME/bin:$PATH
 
 ### Added by Ruby
-export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH=$HOME/.rbenv/bin:$PATH
 eval "$(rbenv init --no-rehash - zsh)"
 
 ### Added by Go
@@ -94,5 +94,6 @@ alias g='git'
 alias t='tig'
 alias q='exit'
 alias e='cd $(ghq list -p | peco)'
+alias mysql='mysql -u root'
 alias -g sed='gsed'
 alias -g awk='gawk'

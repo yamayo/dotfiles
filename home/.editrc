@@ -2,7 +2,7 @@ mysql:bind '^U' vi-kill-line-prev
 mysql:bind '^W' ed-delete-prev-word
 mysql:bind '^R' em-inc-search-prev
 
-mysql:bind -s "q" "exit"
+mysql:bind -s "^xq" "exit\n"
 mysql:bind -s "^xd" "show databases;"
 mysql:bind -s "^xt" "show tables;"
 mysql:bind -s "^xu" "select user,host,password from mysql.user order by user,host;"

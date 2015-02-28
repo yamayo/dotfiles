@@ -10,7 +10,7 @@ set wrap                " 長いテキストの折り返し
 set textwidth=0         " 自動的に改行が入るのを無効化
 set colorcolumn=80      " 80文字目にラインを入れる
 set ruler               " 右下に表示される行・列の番号を表示する
-set cursorline          " カレント行をハイライト 
+set cursorline          " カレント行をハイライト
 set laststatus=2        " 常にステータスラインを表示
 set scrolloff=5         " スクロールする時に下が見えるようにする
 
@@ -24,7 +24,7 @@ set ts=2 sw=2 sts=0     " 画面上でタブ文字が占める幅、自動イン
 set ignorecase          " 大文字小文字を区別しない
 set smartcase           " 検索文字に大文字がある場合は大文字小文字を区別
 set incsearch           " インクリメンタルサーチ
-set hlsearch            " 検索マッチテキストをハイライト 
+set hlsearch            " 検索マッチテキストをハイライト
 
 " ファイル制御
 set hidden              " 変更中のファイルでも、保存しないで他のファイルを表示
@@ -49,9 +49,7 @@ set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%,eol:↲
 set matchpairs& matchpairs+=<:>
 
 " Cut to clipboard
-vmap <C-x> :!pbcopy<CR>
-" Copy to clipboard
-vmap <C-c> :w !pbcopy<CR><CR>
+set clipboard=unnamed
 
 " vimrcを即座に編集
 nnoremap <Space>.   :<C-u>edit $MYVIMRC<Enter>
@@ -156,6 +154,8 @@ NeoBundle 'rizzatti/funcoo.vim'
 NeoBundle 'rizzatti/dash.vim'
 NeoBundle 'slim-template/vim-slim'
 NeoBundle 'terryma/vim-multiple-cursors'
+NeoBundle 'fatih/vim-go'
+NeoBundle 'bronson/vim-trailing-whitespace'
 
 filetype plugin indent on     " Required!
 syntax enable
@@ -269,5 +269,3 @@ let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
 let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
-
-

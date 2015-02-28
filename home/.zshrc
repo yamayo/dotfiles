@@ -28,7 +28,7 @@ DEFAULT_USER=$USER
 # DISABLE_LS_COLORS="true"
 
 # Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 # COMPLETION_WAITING_DOTS="true"
@@ -66,8 +66,9 @@ export PATH=$HOME/.rbenv/bin:$PATH
 eval "$(rbenv init --no-rehash - zsh)"
 
 ### Added by Go
-export GOPATH=$HOME/.go
-export PATH=$PATH:$GOPATH/bin
+export GOPATH=$HOME/go
+export GOROOT=/usr/local/opt/go/libexec
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
 ### Added by z
 . /usr/local/etc/profile.d/z.sh

@@ -49,7 +49,7 @@ set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%,eol:↲
 set matchpairs& matchpairs+=<:>
 
 " Cut to clipboard
-set clipboard=unnamed
+set clipboard=unnamed ",autoselect
 
 " vimrcを即座に編集
 nnoremap <Space>.   :<C-u>edit $MYVIMRC<Enter>

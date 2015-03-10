@@ -41,22 +41,22 @@ plugins=(git ruby osx bundler brew rails z)
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/zaw/zaw.zsh
-bindkey '^R' zaw-history
-# function peco-select-history() {
-#     local tac
-#     if which tac > /dev/null; then
-#         tac="tac"
-#     else
-#         tac="tail -r"
-#     fi
-#     BUFFER=$(\history -n 1 | \
-#         eval $tac | \
-#         peco --query "$LBUFFER")
-#     CURSOR=$#BUFFER
-#     zle clear-screen
-# }
-# zle -N peco-select-history
-# bindkey '^r' peco-select-history
+# bindkey '^R' zaw-history
+function peco-select-history() {
+    local tac
+    if which tac > /dev/null; then
+        tac="tac"
+    else
+        tac="tail -r"
+    fi
+    BUFFER=$(\history -n 1 | \
+        eval $tac | \
+        peco --query "$LBUFFER")
+    CURSOR=$#BUFFER
+    zle clear-screen
+}
+zle -N peco-select-history
+bindkey '^r' peco-select-history
 
 export EDITOR=vim
 export PATH=$HOME/bin:$PATH
@@ -71,10 +71,10 @@ export GOROOT=/usr/local/opt/go/libexec
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
 ### Added by z
-. /usr/local/etc/profile.d/z.sh
-function precmd () {
-  _z --add "$(pwd -P)"
-}
+# . /usr/local/etc/profile.d/z.sh
+# function precmd () {
+#   _z --add "$(pwd -P)"
+# }
 
 # ### Added by AWS CLI
 # source $HOME/.zsh/aws_zsh_completer.sh
@@ -97,5 +97,6 @@ alias t='tig'
 alias q='exit'
 alias e='cd $(ghq list -p | peco)'
 alias mysql='mysql -u root'
+alias top='htop'
 alias -g sed='gsed'
 alias -g awk='gawk'

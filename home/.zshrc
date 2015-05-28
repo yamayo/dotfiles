@@ -57,6 +57,7 @@ function peco-select-history() {
 }
 zle -N peco-select-history
 bindkey '^r' peco-select-history
+function tn() { tmux new -s $1 -n $2; }
 
 export EDITOR=vim
 export PATH=$HOME/bin:$PATH
@@ -78,6 +79,9 @@ export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
 # ### Added by AWS CLI
 # source $HOME/.zsh/aws_zsh_completer.sh
+
+### Added by docker
+export DOCKER_HOST=tcp://192.168.59.103:2376
 
 ### Set aliases
 alias v='vim'

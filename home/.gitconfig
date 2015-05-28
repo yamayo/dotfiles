@@ -11,10 +11,6 @@
 
 [core]
   editor = /usr/bin/vim
-  excludesfile = /opt/boxen/config/git/gitignore
-
-[credential]
-  helper = /opt/boxen/bin/boxen-git-credential
 
 [alias]
   s = status
@@ -28,3 +24,11 @@
 
 [hub]
   protocol = ssh
+
+[ghq]
+  root = ~/src
+
+[pager]
+  log = diff-highlight | less
+  show = diff-highlight | less
+  diff = diff-highlight | less

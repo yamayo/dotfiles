@@ -18,6 +18,8 @@
   br = branch
   ci = commit
   co = checkout
+  hub = browse
+  pr = pull-request
 
 [help]
   autocorrect = -1

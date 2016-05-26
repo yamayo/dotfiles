@@ -63,38 +63,18 @@ function git(){hub "$@"}
 export EDITOR=vim
 export PATH=$HOME/bin:$PATH
 
+export XDG_CONFIG_HOME=~/.config
+
 ### Added by Ruby
 export PATH=$HOME/.rbenv/bin:$PATH
 eval "$(rbenv init --no-rehash - zsh)"
-
-### Added by Go
-export GOPATH=$HOME/go
-export GOROOT=/usr/local/opt/go/libexec
-export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
-
-### Added by z
-# . /usr/local/etc/profile.d/z.sh
-# function precmd () {
-#   _z --add "$(pwd -P)"
-# }
-
-# ### Added by AWS CLI
-# source $HOME/.zsh/aws_zsh_completer.sh
-
-### Added by docker
-export DOCKER_HOST=tcp://192.168.59.103:2376
-export DOCKER_CERT_PATH=~/.boot2docker/certs/boot2docker-vm
-export DOCKER_TLS_VERIFY=1
-
-### Added by AWS
-# export PATH=$PATH:/Users/yamayo/aws/AWS-ElasticBeanstalk-CLI-2.6.4/eb/macosx/python2.7/
-# export PATH=$PATH:/Users/yamayo/aws/AWS-ElasticBeanstalk-CLI-2.6.4/api/bin/
 
 ### Added by direnv
 eval "$(direnv hook zsh)"
 
 ### Set aliases
 alias v='vim'
+alias vim='nvim'
 alias bi='bundle install --path vendor/bundle'
 alias bu='bundle update'
 alias be='bundle exec'
@@ -112,16 +92,7 @@ alias q='exit'
 alias e='cd $(ghq list -p | peco)'
 alias mysql='mysql -u root'
 alias top='htop'
-alias -g sed='gsed'
+# alias -g sed='gsed'
 alias -g awk='gawk'
 
 source ~/.nvm/nvm.sh
-
-# The next line updates PATH for the Google Cloud SDK.
-source '/Users/yamayo/google-cloud-sdk/path.zsh.inc'
-
-# The next line enables shell command completion for gcloud.
-source '/Users/yamayo/google-cloud-sdk/completion.zsh.inc'
-
-PERL_MB_OPT="--install_base \"/Users/yamayo/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/Users/yamayo/perl5"; export PERL_MM_OPT;

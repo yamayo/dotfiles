@@ -48,8 +48,8 @@ set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%,eol:↲
 " 対応括弧に'<'と'>'のペアを追加
 set matchpairs& matchpairs+=<:>
 
-" Cut to clipboard
-set clipboard=unnamed ",autoselect
+" Copy(Cut) to clipboard
+set clipboard+=unnamed ",autoselect
 
 " vimrcを即座に編集
 nnoremap <Space>.   :<C-u>edit $MYVIMRC<Enter>
@@ -58,9 +58,6 @@ nnoremap <Space>s.  :<C-u>source $MYVIMRC<Enter>
 
 " ノーマルモードで改行
 nnoremap <CR> o<Esc>
-
-" w!! でスーパーユーザーとして保存（sudoが使える環境限定）
-cmap w!! w !sudo tee > /dev/null %
 
 " ESCを二回押すことでハイライトを消す
 nmap <silent> <Esc><Esc> :nohlsearch<CR>
@@ -80,192 +77,64 @@ noremap gk k
 " vを二回で行末まで選択
 vnoremap v $h
 
-" 日時の入力補助
-inoremap <expr> ,df strftime('%Y-%m-%dT%H:%M:%S')
-inoremap <expr> ,dd strftime('%Y-%m-%d')
-inoremap <expr> ,dt strftime('%H:%M:%S')
-
-
-" for powerline
-set encoding=utf-8
-set guifont=PowerlineSymbols\ for\ Powerline
-" set guifont=Ricty_for_Powerline:h10
-" set guifontwide=Ricty:h10
-let g:Powerline_symbols = 'fancy'
-set t_Co=256
-
-" for airline
-let g:airline_powerline_fonts = 1
-" let g:airline_theme = 'molokai'
-" let g:airline_theme = 'tomorrow'
-" let g:airline_theme = 'luna'
-" let g:airline_theme = 'solarized'
-" let g:airline_solarized_bg = 'light'
-" let g:airline_section_b = 'fugitive'
-
-" powerline symbols
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline#extensions#branch#enabled = 1
-let g:airline#extensions#branch#empty_message = ''
-let g:airline#extensions#branch#symbol = ' '
-let g:airline#extensions#readonly#symbol = ''
-let g:airline_linecolumn_prefix = ' '
-
-
-"" NeoBundle
-"
-" set nocompatible               " Be iMproved
-
-if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+"dein Scripts-----------------------------
+if &compatible
+  set nocompatible               " Be iMproved
 endif
 
-call neobundle#begin(expand('~/.vim/bundle/'))
-" Let NeoBundle manage NeoBundle
-NeoBundleFetch 'Shougo/neobundle.vim'
-call neobundle#end()
+" Required:
+set runtimepath^=/Users/yamayo/.config/nvim/dein/repos/github.com/Shougo/dein.vim
 
-" Recommended to install
-" After install, turn shell ~/.vim/bundle/vimproc, (n,g)make -f your_machines_makefile
-NeoBundle 'Shougo/vimproc'
+" Required:
+call dein#begin(expand('/Users/yamayo/.config/nvim/dein'))
 
-" My Bundles here:
-"
-" Note: You don't set neobundle setting in .gvimrc!
-" Original repos on github
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'tpope/vim-rails'
-NeoBundle 'tpope/vim-endwise'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'vim-ruby/vim-ruby'
-NeoBundle 'basyura/unite-rails'
-NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'helino/vim-json'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'bling/vim-airline'
-NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'rizzatti/funcoo.vim'
-NeoBundle 'rizzatti/dash.vim'
-NeoBundle 'slim-template/vim-slim'
-NeoBundle 'terryma/vim-multiple-cursors'
-NeoBundle 'fatih/vim-go'
-NeoBundle 'bronson/vim-trailing-whitespace'
+" Let dein manage dein
+" Required:
+call dein#add('Shougo/dein.vim')
 
-filetype plugin indent on     " Required!
-syntax enable
+" Add or remove your plugins here:
+call dein#add('Shougo/neosnippet.vim')
+call dein#add('Shougo/neosnippet-snippets')
+call dein#add('Shougo/neocomplete.vim')
+call dein#add('scrooloose/nerdtree')
+call dein#add('altercation/vim-colors-solarized')
+call dein#add('tpope/vim-surround')
+call dein#add('tpope/vim-endwise')
+call dein#add('tpope/vim-ruby')
+call dein#add('tpope/vim-rails')
+call dein#add('vim-airline/vim-airline')
+" call dein#add('vim-airline/vim-airline-themes')
 
-" Brief help
-" :NeoBundleList          - list configured bundles
-" :NeoBundleInstall(!)    - install(update) bundles
-" :NeoBundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+" You can specify revision/branch/tag.
+call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
 
-" Installation check.
-NeoBundleCheck
+" Required:
+call dein#end()
 
-" Solarized stuff
-let g:solarized_termtrans = 1
+" Required:
+filetype plugin indent on
+
+" If you want to install not installed plugins on startup.
+if dein#check_install()
+  call dein#install()
+endif
+"End dein Scripts-------------------------
+
+" airline
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#branch#enabled = 0
+" let g:airline_theme = 'solarized'
+" let g:airline_solarized_bg = 'dark'
+
+" Solarized
 set background=dark
 colorscheme solarized
-let g:solarized_termcolors=256
 
-" Give a shortcut key to NERD Tree
-map <F2> :NERDTreeToggle<CR>
+" NERD Tree
 let NERDTreeShowHidden=1
+map <F2> :NERDTreeToggle<CR>
 
 let file_name = expand("%")
 if has('vim_starting') &&  file_name == ""
-    autocmd VimEnter * NERDTree ./
+  autocmd VimEnter * NERDTree ./
 endif
-
-" neocomplcache
-"Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-" Use neocomplcache.
-let g:neocomplcache_enable_at_startup = 1
-" Use smartcase.
-let g:neocomplcache_enable_smart_case = 1
-" Set minimum syntax keyword length.
-let g:neocomplcache_min_syntax_length = 3
-let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-
-" Enable heavy features.
-" Use camel case completion.
-"let g:neocomplcache_enable_camel_case_completion = 1
-" Use underbar completion.
-"let g:neocomplcache_enable_underbar_completion = 1
-
-" Define dictionary.
-let g:neocomplcache_dictionary_filetype_lists = { 'default' : '', 'vimshell' : $HOME.'/.vimshell_hist', 'scheme' : $HOME.'/.gosh_completions' }
-
-" Define keyword.
-if !exists('g:neocomplcache_keyword_patterns')
-    let g:neocomplcache_keyword_patterns = {}
-endif
-let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
-
-" Plugin key-mappings.
-inoremap <expr><C-g>     neocomplcache#undo_completion()
-inoremap <expr><C-l>     neocomplcache#complete_common_string()
-
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return neocomplcache#smart_close_popup() . "\<CR>"
-  " For no inserting <CR> key.
-  "return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
-endfunction
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplcache#close_popup()
-inoremap <expr><C-e>  neocomplcache#cancel_popup()
-" Close popup by <Space>.
-"inoremap <expr><Space> pumvisible() ? neocomplcache#close_popup() : "\<Space>"
-
-" For cursor moving in insert mode(Not recommended)
-"inoremap <expr><Left>  neocomplcache#close_popup() . "\<Left>"
-"inoremap <expr><Right> neocomplcache#close_popup() . "\<Right>"
-"inoremap <expr><Up>    neocomplcache#close_popup() . "\<Up>"
-"inoremap <expr><Down>  neocomplcache#close_popup() . "\<Down>"
-" Or set this.
-"let g:neocomplcache_enable_cursor_hold_i = 1
-" Or set this.
-"let g:neocomplcache_enable_insert_char_pre = 1
-
-" AutoComplPop like behavior.
-"let g:neocomplcache_enable_auto_select = 1
-
-" Shell like behavior(not recommended).
-"set completeopt+=longest
-"let g:neocomplcache_enable_auto_select = 1
-"let g:neocomplcache_disable_auto_complete = 1
-"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
-
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
-" Enable heavy omni completion.
-if !exists('g:neocomplcache_omni_patterns')
-  let g:neocomplcache_omni_patterns = {}
-endif
-let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-let g:neocomplcache_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-
-" For perlomni.vim setting.
-" https://github.com/c9s/perlomni.vim
-let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'

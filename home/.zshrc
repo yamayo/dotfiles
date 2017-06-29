@@ -40,7 +40,7 @@ DISABLE_AUTO_TITLE="true"
 plugins=(git ruby osx bundler brew rails z)
 
 source $ZSH/oh-my-zsh.sh
-source $HOME/zaw/zaw.zsh
+source $HOME/.zaw/zaw/zaw.zsh
 # bindkey '^R' zaw-history
 function peco-select-history() {
     local tac
@@ -58,22 +58,25 @@ function peco-select-history() {
 zle -N peco-select-history
 bindkey '^r' peco-select-history
 function tn() { tmux new -s $1 -n $2; }
-function git(){hub "$@"}
+# function git(){hub "$@"}
 
 export EDITOR=vim
 export PATH=$HOME/bin:$PATH
 
 export XDG_CONFIG_HOME=~/.config
 
-### Added by Ruby
 export PATH=$HOME/.rbenv/bin:$PATH
 eval "$(rbenv init --no-rehash - zsh)"
 
-### Added by direnv
+export PATH=$HOME/.nodebrew/current/bin:$PATH
+
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$PATH
+
 eval "$(direnv hook zsh)"
 
-### Set aliases
-alias v='vim'
+alias v='nvim'
+alias vi='nvim'
 alias vim='nvim'
 alias bi='bundle install --path vendor/bundle'
 alias bu='bundle update'
@@ -94,5 +97,8 @@ alias mysql='mysql -u root'
 alias top='htop'
 # alias -g sed='gsed'
 alias -g awk='gawk'
+alias dl='docker ps -l -q'
 
-source ~/.nvm/nvm.sh
+
+export NVM_DIR="/Users/yamayo/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

@@ -1,5 +1,7 @@
 -d mysql
 -B
--T
+# -T
 --skip-turbolinks
--O
+-C
+-M
+--skip-coffee

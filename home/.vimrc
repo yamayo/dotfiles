@@ -43,7 +43,7 @@ set pastetoggle=<F5>
 set backspace=indent,eol,start
 
 " 不可視文字の変更
-set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%,eol:↲
+set listchars=tab:\ \ ,trail:-,extends:»,precedes:«,nbsp:%,eol:↲
 
 " 対応括弧に'<'と'>'のペアを追加
 set matchpairs& matchpairs+=<:>
@@ -95,15 +95,15 @@ call dein#add('Shougo/dein.vim')
 " Add or remove your plugins here:
 call dein#add('Shougo/neosnippet.vim')
 call dein#add('Shougo/neosnippet-snippets')
-call dein#add('Shougo/neocomplete.vim')
+call dein#add('Shougo/deoplete.nvim')
 call dein#add('scrooloose/nerdtree')
 call dein#add('altercation/vim-colors-solarized')
 call dein#add('tpope/vim-surround')
 call dein#add('tpope/vim-endwise')
-call dein#add('tpope/vim-ruby')
 call dein#add('tpope/vim-rails')
 call dein#add('vim-airline/vim-airline')
-" call dein#add('vim-airline/vim-airline-themes')
+call dein#add('vim-airline/vim-airline-themes')
+call dein#add('fatih/vim-go')
 
 " You can specify revision/branch/tag.
 call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
@@ -120,11 +120,14 @@ if dein#check_install()
 endif
 "End dein Scripts-------------------------
 
+let g:deoplete#enable_at_startup = 1
+let g:go_fmt_command = "goimports"
+
 " airline
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#branch#enabled = 0
-" let g:airline_theme = 'solarized'
-" let g:airline_solarized_bg = 'dark'
+let g:airline_theme = 'solarized'
+let g:airline_solarized_bg = 'dark'
 
 " Solarized
 set background=dark

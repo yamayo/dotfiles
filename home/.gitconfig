@@ -29,6 +29,7 @@
 
 [ghq]
   root = ~/src
+  root = ~/go/src
 
 [pager]
   log = diff-highlight | less

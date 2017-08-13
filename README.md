@@ -6,7 +6,7 @@ yamayo's OSX dotfiles
 ```
 $ gem install homesick
 $ homesick clone yamayo/dotfiles
-$ homesick symlink yamayo/dotfiles
+$ homesick symlink dotfiles
 ```
 
 ### Git configuration

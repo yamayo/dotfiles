@@ -2,6 +2,9 @@
   name = yamayo
   email = noorthaven@gmail.com
 
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+
 [color]
   status = auto
   diff = auto
@@ -31,7 +34,7 @@
   root = ~/src
   root = ~/go/src
 
-[pager]
-  log = diff-highlight | less
-  show = diff-highlight | less
-  diff = diff-highlight | less
+# [pager]
+  # log = diff-highlight | less
+  # show = diff-highlight | less
+  # diff = diff-highlight | less

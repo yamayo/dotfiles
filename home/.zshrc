@@ -61,7 +61,7 @@ function tn() { tmux new -s $1 -n $2; }
 # function git(){hub "$@"}
 
 export EDITOR=vim
-export PATH=$HOME/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 export XDG_CONFIG_HOME=~/.config
 
@@ -72,6 +72,10 @@ export PATH=$HOME/.nodebrew/current/bin:$PATH
 
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 eval "$(direnv hook zsh)"
 
@@ -98,7 +102,3 @@ alias top='htop'
 # alias -g sed='gsed'
 alias -g awk='gawk'
 alias dl='docker ps -l -q'
-
-
-export NVM_DIR="/Users/yamayo/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

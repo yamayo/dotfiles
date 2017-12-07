@@ -68,6 +68,9 @@ export XDG_CONFIG_HOME=~/.config
 export PATH=$HOME/.rbenv/bin:$PATH
 eval "$(rbenv init --no-rehash - zsh)"
 
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 
 export GOPATH=$HOME/go

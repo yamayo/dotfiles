@@ -60,6 +60,8 @@ bindkey '^r' peco-select-history
 function tn() { tmux new -s $1 -n $2; }
 # function git(){hub "$@"}
 
+export LANG=ja_JP.UTF-8
+export LC_ALL=ja_JP.UTF-8
 export EDITOR=vim
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -69,7 +71,6 @@ export PATH=$HOME/.rbenv/bin:$PATH
 eval "$(rbenv init --no-rehash - zsh)"
 
 eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
 
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 
@@ -84,7 +85,8 @@ eval "$(direnv hook zsh)"
 
 alias v='nvim'
 alias vi='nvim'
-alias vim='nvim'
+alias ev='vim ~/.vimrc'
+# alias vim='nvim'
 alias bi='bundle install --path vendor/bundle'
 alias bu='bundle update'
 alias be='bundle exec'
@@ -97,11 +99,10 @@ alias reload='source ~/.zshrc'
 alias essh='vim ~/.ssh/config'
 alias ezsh='vim ~/.zshrc'
 alias g='git'
-alias t='tig'
-alias q='exit'
 alias e='cd $(ghq list -p | peco)'
 alias mysql='mysql -u root'
 alias top='htop'
 # alias -g sed='gsed'
 alias -g awk='gawk'
 alias dl='docker ps -l -q'
+alias ctags="`brew --prefix`/bin/ctags"

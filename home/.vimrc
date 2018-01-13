@@ -1,81 +1,73 @@
-set nocompatible
-syntax on               " シンタックスハイライト
+syntax on
 
-set encoding=utf-8      " エンコード
+set encoding=utf-8
 
-" 表示
-set list                " 不可視文字の可視化
-set number              " 行番号の表示
-set wrap                " 長いテキストの折り返し
-set textwidth=0         " 自動的に改行が入るのを無効化
-set colorcolumn=80      " 80文字目にラインを入れる
-set ruler               " 右下に表示される行・列の番号を表示する
-set cursorline          " カレント行をハイライト
-set laststatus=2        " 常にステータスラインを表示
-set scrolloff=5         " スクロールする時に下が見えるようにする
+set list
+set number
+set wrap
+set textwidth=0
+set colorcolumn=80
+set ruler
+set cursorline
+set laststatus=2
+set scrolloff=5
+set showmatch
 
-" タブ
-set expandtab           " タブ入力を複数の空白入力に置き換える
-set autoindent          " 改行時に前の行のインデントを継続する
-set smartindent         " 改行時に入力された行の末尾に合わせて次の行のインデントを増減する
-set ts=2 sw=2 sts=0     " 画面上でタブ文字が占める幅、自動インデントでずれる幅、連続した空白に対してタブキーやバックスペースキーでカーソルが動く幅
+set expandtab
+set autoindent
+set smartindent
+set tabstop=2
+set shiftwidth=2
+set softtabstop=0
 
-" 検索
-set ignorecase          " 大文字小文字を区別しない
-set smartcase           " 検索文字に大文字がある場合は大文字小文字を区別
-set incsearch           " インクリメンタルサーチ
-set hlsearch            " 検索マッチテキストをハイライト
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
 
-" ファイル制御
-set hidden              " 変更中のファイルでも、保存しないで他のファイルを表示
-set switchbuf=useopen   " 新しく開く代わりにすでに開いてあるバッファを開く
-set noswapfile          " .swapファイルを作らない
-set nowritebackup       " バックアップファイルを作らない
-set nobackup            " バックアップをしない
+set hidden
+set switchbuf=useopen
+set noswapfile
+set nowritebackup
+set nobackup
 
-" マウスモードを有効にする
 set mouse=a
 
-" F5でペーストモードを切り替え
 set pastetoggle=<F5>
 
-" バックスペースでなんでも消せるようにする
 set backspace=indent,eol,start
-
-" 不可視文字の変更
-set listchars=tab:\ \ ,trail:-,extends:»,precedes:«,nbsp:%,eol:↲
-
-" 対応括弧に'<'と'>'のペアを追加
+set listchars=tab:>\ ,trail:-,extends:»,precedes:«,nbsp:%,eol:↲
 set matchpairs& matchpairs+=<:>
+set clipboard+=unnamed " ,autoselect
 
-" Copy(Cut) to clipboard
-set clipboard+=unnamed ",autoselect
 
-" vimrcを即座に編集
-nnoremap <Space>.   :<C-u>edit $MYVIMRC<Enter>
-" vimrcを即座にリロード
-nnoremap <Space>s.  :<C-u>source $MYVIMRC<Enter>
-
-" ノーマルモードで改行
-nnoremap <CR> o<Esc>
-
-" ESCを二回押すことでハイライトを消す
-nmap <silent> <Esc><Esc> :nohlsearch<CR>
-
-" :helpを引きやすくする
-nnoremap <C-h> :<C-u>help<Space>
-
-" カーソルの下のキーワードを:helpで引けるようにする
-nnoremap <C-h><C-h> :<C-u>help<Space><C-r><C-w><Enter>
-
-" 論理行移動と表示行移動のキーバインディングを入れ替える
-noremap j gj
-noremap k gk
-noremap gj j
-noremap gk k
-
-" vを二回で行末まで選択
+nnoremap j gj
+nnoremap k gk
+nnoremap gj j
+nnoremap gk k
 vnoremap v $h
+nnoremap <CR> o<Esc>
+nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
+inoremap <C-h> <Left>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-l> <Right>
+
+
+let mapleader = "\<Space>"
+
+nnoremap <leader>w :<C-u>w!<CR>
+nnoremap <leader>q :<C-u>q!<CR>
+nnoremap <leader>qa :<C-u>qall!<CR>
+nnoremap <leader>x :<C-u>x!<CR>
+nnoremap <leader>r :<C-u>e!<CR>
+nnoremap <leader>ev :<C-u>edit $MYVIMRC<CR>
+nnoremap <leader>sv :<C-u>source $MYVIMRC<CR>
+
+
+autocmd BufWritePre * :%s/\s\+$//e
+autocmd InsertLeave * set nopaste
+
 
 "dein Scripts-----------------------------
 if &compatible
@@ -97,6 +89,8 @@ if dein#load_state('/Users/yamayo/.cache/dein')
   call dein#add('Shougo/neosnippet.vim')
   call dein#add('Shougo/neosnippet-snippets')
   call dein#add('Shougo/deoplete.nvim')
+  call dein#add('Shougo/deoplete-go')
+  call dein#add('fishbullet/deoplete-ruby')
   call dein#add('scrooloose/nerdtree')
   call dein#add('altercation/vim-colors-solarized')
   call dein#add('tpope/vim-surround')
@@ -105,6 +99,9 @@ if dein#load_state('/Users/yamayo/.cache/dein')
   call dein#add('vim-airline/vim-airline')
   call dein#add('vim-airline/vim-airline-themes')
   call dein#add('fatih/vim-go')
+  call dein#add('mileszs/ack.vim')
+  call dein#add('junegunn/vim-easy-align')
+  call dein#add('cohama/lexima.vim')
 
   " You can specify revision/branch/tag.
   call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
@@ -125,8 +122,10 @@ endif
 
 "End dein Scripts-------------------------
 
+" deoplete
 let g:deoplete#enable_at_startup = 1
 let g:go_fmt_command = "goimports"
+
 
 " airline
 let g:airline_powerline_fonts = 1
@@ -134,9 +133,11 @@ let g:airline#extensions#branch#enabled = 0
 let g:airline_theme = 'solarized'
 let g:airline_solarized_bg = 'dark'
 
+
 " Solarized
 set background=dark
 colorscheme solarized
+
 
 " NERD Tree
 let NERDTreeShowHidden=1
@@ -146,3 +147,16 @@ let file_name = expand("%")
 if has('vim_starting') &&  file_name == ""
   autocmd VimEnter * NERDTree ./
 endif
+
+
+" The Silver Searcher
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
+
+" vim-easy-align
+" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
+vmap <Enter> <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)

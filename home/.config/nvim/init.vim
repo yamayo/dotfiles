@@ -100,6 +100,7 @@ if dein#load_state('/Users/yamayo/.cache/dein')
   call dein#add('/Users/yamayo/.cache/dein/repos/github.com/Shougo/dein.vim')
 
   " Add or remove your plugins here:
+  call dein#add('Shougo/unite.vim')
   call dein#add('Shougo/neosnippet.vim')
   call dein#add('Shougo/neosnippet-snippets')
   call dein#add('Shougo/deoplete.nvim')
@@ -112,6 +113,7 @@ if dein#load_state('/Users/yamayo/.cache/dein')
   call dein#add('tpope/vim-rails')
   call dein#add('vim-airline/vim-airline')
   call dein#add('vim-airline/vim-airline-themes')
+  call dein#add('easymotion/vim-easymotion')
   call dein#add('fatih/vim-go')
   call dein#add('mileszs/ack.vim')
   call dein#add('junegunn/vim-easy-align')
@@ -132,6 +134,15 @@ if dein#check_install()
 endif
 
 "End dein Scripts-------------------------
+
+" unite
+let g:unite_enable_start_insert = 1
+let g:unite_enable_ignore_case = 1
+let g:unite_enable_smart_case = 1
+
+autocmd FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
+autocmd FileType unite inoremap <silent> <buffer> <ESC><ESC>
+
 
 " deoplete
 let g:deoplete#enable_at_startup = 1
@@ -163,6 +174,12 @@ endif
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
+
+
+" EasyMotion
+let g:EasyMotion_do_mapping = 0
+nmap f <plug>(easymotion-overwin-f2)
+let g:EasyMotion_smartcase = 1
 
 
 " vim-easy-align

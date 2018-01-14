@@ -85,7 +85,7 @@ eval "$(direnv hook zsh)"
 
 alias v='nvim'
 alias vi='nvim'
-alias ev='vi ~/.vimrc'
+alias ev='vi ~/.config/nvim/init.vim'
 alias bi='bundle install --path vendor/bundle'
 alias bu='bundle update'
 alias be='bundle exec'

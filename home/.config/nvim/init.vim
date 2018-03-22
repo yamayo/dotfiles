@@ -145,6 +145,7 @@ autocmd FileType unite inoremap <silent> <buffer> <ESC><ESC>
 
 
 " deoplete
+let g:python3_host_prog = expand('$HOME') . '/.pyenv/shims/python'
 let g:deoplete#enable_at_startup = 1
 
 

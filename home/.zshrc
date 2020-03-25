@@ -66,7 +66,8 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 export XDG_CONFIG_HOME=~/.config
 
-export PATH=$HOME/.rbenv/bin:$PATH
+export PYENV_ROOT=$HOME/.pyenv
+export PATH=$PYENV_ROOT/bin:$PATH
 eval "$(rbenv init --no-rehash - zsh)"
 
 eval "$(pyenv init -)"

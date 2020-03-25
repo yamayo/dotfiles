@@ -37,10 +37,10 @@ DISABLE_AUTO_TITLE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # plugins=(git ruby osx bundler brew rails zsh-syntax-highlighting)
-plugins=(git ruby osx bundler brew rails z)
+plugins=(git ruby osx bundler brew rails)
 
 source $ZSH/oh-my-zsh.sh
-source $HOME/.zaw/zaw/zaw.zsh
+# source $HOME/.zaw/zaw/zaw.zsh
 # bindkey '^R' zaw-history
 function peco-select-history() {
     local tac
@@ -58,7 +58,6 @@ function peco-select-history() {
 zle -N peco-select-history
 bindkey '^r' peco-select-history
 function tn() { tmux new -s $1 -n $2; }
-# function git(){hub "$@"}
 
 export LANG=ja_JP.UTF-8
 export LC_ALL=ja_JP.UTF-8
@@ -71,15 +70,14 @@ export PATH=$HOME/.rbenv/bin:$PATH
 eval "$(rbenv init --no-rehash - zsh)"
 
 eval "$(pyenv init -)"
+export PATH="/Users/yamayo/.local/bin:$PATH"
 
-export PATH=$HOME/.nodebrew/current/bin:$PATH
+export PATH=$HOME/.nodenv/bin:$PATH
+eval "$(nodenv init -)"
 
-export GOPATH=$HOME/go
-export PATH=$GOPATH/bin:$PATH
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export GOENV_ROOT=$HOME/.goenv
+export PATH=$GOENV_ROOT/bin:$PATH
+eval "$(goenv init -)"
 
 eval "$(direnv hook zsh)"
 
@@ -90,15 +88,13 @@ alias bi='bundle install --path vendor/bundle'
 alias bu='bundle update'
 alias be='bundle exec'
 alias c='bundle exec rails c'
-alias db='bundle exec rails dbconsole'
+alias db='bundle exec rails dbconsole -p'
 alias cpwd='pwd | tr -d '\n' | pbcopy'
 alias less='less -NS'
 alias reload='source ~/.zshrc'
-alias essh='vim ~/.ssh/config'
-alias ezsh='vim ~/.zshrc'
 alias g='git'
 alias e='cd $(ghq list -p | peco)'
-alias mysql='mysql -u root'
+# alias mysql='mysql -u root'
 alias top='htop'
 # alias -g sed='gsed'
 alias -g awk='gawk'

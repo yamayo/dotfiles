@@ -118,6 +118,7 @@ if dein#load_state('/Users/yamayo/.cache/dein')
   call dein#add('mileszs/ack.vim')
   call dein#add('junegunn/vim-easy-align')
   call dein#add('cohama/lexima.vim')
+  call dein#add('posva/vim-vue')
 
   " Required:
   call dein#end()
@@ -146,6 +147,7 @@ autocmd FileType unite inoremap <silent> <buffer> <ESC><ESC>
 
 " deoplete
 let g:deoplete#enable_at_startup = 1
+let g:python3_host_prog = expand('$HOME') . '/.pyenv/shims/python'
 
 
 " airline

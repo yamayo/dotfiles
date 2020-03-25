@@ -146,6 +146,7 @@ autocmd FileType unite inoremap <silent> <buffer> <ESC><ESC>
 
 
 " deoplete
+let g:python3_host_prog = expand('$HOME') . '/.pyenv/shims/python'
 let g:deoplete#enable_at_startup = 1
 let g:python3_host_prog = expand('$HOME') . '/.pyenv/shims/python'
 
@@ -180,7 +181,7 @@ endif
 
 " EasyMotion
 let g:EasyMotion_do_mapping = 0
-nmap f <plug>(easymotion-overwin-f2)
+nmap <leader>f <plug>(easymotion-overwin-f2)
 let g:EasyMotion_smartcase = 1
 
 

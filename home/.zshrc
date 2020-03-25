@@ -66,14 +66,16 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 export XDG_CONFIG_HOME=~/.config
 
+export RBENV_ROOT=$HOME/.rbenv
+export PATH=$RBENV_ROOT/bin:$PATH
+eval "$(rbenv init - --no-rehash)"
+
 export PYENV_ROOT=$HOME/.pyenv
 export PATH=$PYENV_ROOT/bin:$PATH
-eval "$(rbenv init --no-rehash - zsh)"
-
 eval "$(pyenv init -)"
-export PATH="/Users/yamayo/.local/bin:$PATH"
 
-export PATH=$HOME/.nodenv/bin:$PATH
+export NODENV_ROOT=$HOME/.nodenv
+export PATH=$NODENV_ROOT/bin:$PATH
 eval "$(nodenv init -)"
 
 export GOENV_ROOT=$HOME/.goenv

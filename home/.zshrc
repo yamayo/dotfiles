@@ -62,7 +62,6 @@ function tn() { tmux new -s $1 -n $2; }
 export LANG=ja_JP.UTF-8
 export LC_ALL=ja_JP.UTF-8
 export EDITOR=vim
-export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 export XDG_CONFIG_HOME=~/.config
 

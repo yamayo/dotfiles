@@ -3,7 +3,7 @@
   email = noorthaven@gmail.com
 
 [url "git@github.com:"]
-	insteadOf = https://github.com/
+  insteadOf = https://github.com/
 
 [color]
   status = auto
@@ -14,6 +14,7 @@
 
 [core]
   editor = /usr/bin/vim
+  whitespace = cr-at-eol
 
 [alias]
   s = status

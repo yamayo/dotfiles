@@ -1,4 +1,4 @@
--d mysql
+# -d mysql
 -B
 # -T
 --skip-turbolinks

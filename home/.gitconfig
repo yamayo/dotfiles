@@ -1,6 +1,6 @@
 [user]
-  name = yamayo
-  email = noorthaven@gmail.com
+	name = yamayo
+	email = noorthaven@gmail.com
 
 [url "git@github.com:"]
   insteadOf = https://github.com/
@@ -24,6 +24,8 @@
   co = checkout
   hub = browse
   pr = pull-request
+  upush = !git push -u origin $(git rev-parse --abbrev-ref HEAD)
+  upull = !git pull origin $(git rev-parse --abbrev-ref HEAD)
 
 [help]
   autocorrect = -1
@@ -33,9 +35,16 @@
 
 [ghq]
   root = ~/src
-  root = ~/go/src
+  # root = ~/go/src
 
 # [pager]
   # log = diff-highlight | less
   # show = diff-highlight | less
   # diff = diff-highlight | less
+[credential]
+  helper = !aws codecommit credential-helper $@
+  UseHttpPath = true
+[pull]
+	ff = only
+[merge]
+	ff = true

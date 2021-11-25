@@ -78,7 +78,7 @@ export PATH=$NODENV_ROOT/bin:$PATH
 eval "$(nodenv init -)"
 
 export GOENV_ROOT=$HOME/.goenv
-export PATH=$GOENV_ROOT/bin:$PATH
+export PATH=$GOENV_ROOT/bin:$GOPATH/bin:$GOROOT/bin:$PATH
 eval "$(goenv init -)"
 
 eval "$(direnv hook zsh)"
@@ -96,7 +96,6 @@ alias less='less -NS'
 alias reload='source ~/.zshrc'
 alias g='git'
 alias e='cd $(ghq list -p | peco)'
-# alias mysql='mysql -u root'
 alias top='htop'
 # alias -g sed='gsed'
 alias -g awk='gawk'

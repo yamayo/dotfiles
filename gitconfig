@@ -1,0 +1,29 @@
+[user]
+	name = yamayo
+	email = noorthaven@gmail.com
+[core]
+	editor = nvim
+	whitespace = cr-at-eol
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[fetch]
+	prune = true
+[pull]
+	ff = only
+[merge]
+	ff = only
+[color]
+  status = auto
+  diff = auto
+  branch = auto
+  interactive = auto
+  grep = auto
+  ui = auto
+[alias]
+  s = status
+  co = checkout
+  ci = commit
+  upush = !git push -u origin $(git rev-parse --abbrev-ref HEAD)
+  upull = !git pull origin $(git rev-parse --abbrev-ref HEAD)
+[ghq]
+  root = ~/src

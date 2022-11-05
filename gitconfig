@@ -6,10 +6,13 @@
 	whitespace = cr-at-eol
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+[push]
+	default = current
 [fetch]
 	prune = true
 [pull]
 	ff = only
+	default = current
 [merge]
 	ff = only
 [color]
@@ -23,7 +26,5 @@
   s = status
   co = checkout
   ci = commit
-  upush = !git push -u origin $(git rev-parse --abbrev-ref HEAD)
-  upull = !git pull origin $(git rev-parse --abbrev-ref HEAD)
 [ghq]
   root = ~/src

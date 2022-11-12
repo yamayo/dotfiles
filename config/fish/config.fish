@@ -19,3 +19,7 @@ alias lla "ll -a"
 alias vim nvim
 alias vi vim
 alias v vi
+
+function mkd
+  command mkdir {$argv[1]} && cd {$argv[1]}
+end

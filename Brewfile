@@ -43,6 +43,7 @@ cask "font-hack-nerd-font"
 cask "google-chrome"
 cask "slack"
 cask "spotify"
+cask "visual-studio-code"
 cask "wireshark"
 cask "zoom"
 mas "Magnet", id: 441258766

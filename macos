@@ -1,0 +1,2 @@
+# vscode neovim での repeat key
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false

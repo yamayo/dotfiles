@@ -4,6 +4,7 @@
 [core]
 	editor = nvim
 	whitespace = cr-at-eol
+	quotepath = false
 [url "git@github.com:"]
 	insteadOf = https://github.com/
 [push]

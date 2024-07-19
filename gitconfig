@@ -1,5 +1,5 @@
 [user]
-	name = yamayo
+	name = Yo Yamato
 	email = noorthaven@gmail.com
 [core]
 	editor = nvim
@@ -29,3 +29,8 @@
   ci = commit
 [ghq]
   root = ~/src
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f

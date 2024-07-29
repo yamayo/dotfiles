@@ -1,21 +1,23 @@
 [user]
-	name = Yo Yamato
-	email = noorthaven@gmail.com
+  name = Yo Yamato
+  email = noorthaven@gmail.com
 [core]
-	editor = nvim
-	whitespace = cr-at-eol
-	quotepath = false
+  editor = nvim
+  whitespace = cr-at-eol
+  quotepath = false
+  pager = delta
 [url "git@github.com:"]
-	insteadOf = https://github.com/
+  insteadOf = https://github.com/
 [push]
-	default = current
+  default = current
 [fetch]
-	prune = true
+  prune = true
 [pull]
-	ff = only
-	default = current
+  ff = only
+  default = current
 [merge]
-	ff = only
+  ff = only
+  conflictstyle = diff3
 [color]
   status = auto
   diff = auto
@@ -23,14 +25,16 @@
   interactive = auto
   grep = auto
   ui = auto
+[interactive]
+  diffFilter = delta --color-only
+[delta]
+  navigate = true
+  side-by-side = true
 [alias]
   s = status
   co = checkout
   ci = commit
+[diff]
+  colorMoved = default
 [ghq]
   root = ~/src
-[filter "lfs"]
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f

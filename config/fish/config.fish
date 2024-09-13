@@ -15,12 +15,13 @@ source "$HOME/.rye/env.fish"
 
 # aliases
 alias g git
-alias ll "exa -l -g --icons"
+alias ll "eza -l -g --icons"
 alias lla "ll -a"
 alias vim nvim
 alias vi vim
 alias v vi
 alias gcurl 'curl -H "Authorization: Bearer $(gcloud auth print-access-token)" -H "Content-Type: application/json" '
+alias k kubectl
 # alias pnpm "corepack pnpm"
 
 function mkd

@@ -15,14 +15,14 @@ return require('packer').startup(function(use)
   use { 'neoclide/coc.nvim', branch = 'release' }
   use { 'kyazdani42/nvim-web-devicons' }
   use { 'nvim-lualine/lualine.nvim' }
-  -- use 'onsails/lspkind-nvim'
+  use 'onsails/lspkind-nvim'
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.4',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
   use 'nvim-telescope/telescope-file-browser.nvim'
   use 'windwp/nvim-autopairs'
-  -- use 'norcalli/nvim-colorizer.lua'
+  use 'norcalli/nvim-colorizer.lua'
   use {
     'nvim-treesitter/nvim-treesitter',
     run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,

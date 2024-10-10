@@ -1,4 +1,7 @@
-require('lualine').setup({
+local status, l = pcall(require, 'lualine')
+if (not status) then return end
+
+l.setup({
   options = {
     icons_enabled = true,
     theme = 'powerline_dark',

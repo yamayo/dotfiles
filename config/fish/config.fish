@@ -29,8 +29,6 @@ end
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 set --export --prepend PATH "~/.rd/bin"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)⏎
-set -gx VOLTA_HOME "$HOME/.volta"
-set -gx PATH "$VOLTA_HOME/bin" $PATH
 set -gx PATH "$(go env GOPATH)/bin" $PATH
 
 kubectl completion fish | source

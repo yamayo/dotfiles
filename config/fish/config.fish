@@ -10,8 +10,7 @@ if status is-interactive
   bind \c] peco_select_ghq_repository
 end
 
-source /opt/homebrew/opt/asdf/libexec/asdf.fish
-source "$HOME/.rye/env.fish"
+mise activate fish | source
 
 # aliases
 alias g git
@@ -22,7 +21,6 @@ alias vi vim
 alias v vi
 alias gcurl 'curl -H "Authorization: Bearer $(gcloud auth print-access-token)" -H "Content-Type: application/json" '
 alias k kubectl
-# alias pnpm "corepack pnpm"
 
 function mkd
   command mkdir {$argv[1]} && cd {$argv[1]}

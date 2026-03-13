@@ -21,6 +21,7 @@ alias vi vim
 alias v vi
 alias gcurl 'curl -H "Authorization: Bearer $(gcloud auth print-access-token)" -H "Content-Type: application/json" '
 alias k kubectl
+alias pn pnpm
 
 function mkd
   command mkdir {$argv[1]} && cd {$argv[1]}
@@ -32,3 +33,11 @@ set --export --prepend PATH "~/.rd/bin"
 set -gx PATH "$(go env GOPATH)/bin" $PATH
 
 kubectl completion fish | source
+
+# pnpm
+set -gx PNPM_HOME "$HOME/Library/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
+export PATH="$HOME/.local/bin:$PATH"

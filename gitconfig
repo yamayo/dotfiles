@@ -6,8 +6,6 @@
   whitespace = cr-at-eol
   quotepath = false
   pager = delta
-[url "git@github.com:"]
-  insteadOf = https://github.com/
 [push]
   default = current
 [fetch]
